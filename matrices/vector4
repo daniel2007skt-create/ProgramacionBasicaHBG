@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int main() {
+    int N;
+    int i;
+    int j;
+
+    printf("Ingrese el tamano de la matriz NxN: ");
+    scanf("%d", &N);
+
+    int matriz[N][N];
+    int maximos[N];
+
+    for(i = 0; i < N; i++) {
+        for(j = 0; j < N; j++) {
+            printf("Elemento (%d,%d): ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    for(i = 0; i < N; i++) {
+        int maxFila = matriz[i][0];
+        for(j = 1; j < N; j++) {
+            if(matriz[i][j] > maxFila) {
+                maxFila = matriz[i][j];
+            }
+        }
+        maximos[i] = maxFila;
+    }
+
+    for(i = 0; i < N; i++) {
+        printf("Maximo fila %d: %d\n", i, maximos[i]);
+    }
+
+    return 0;
+}
