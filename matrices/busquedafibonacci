@@ -1,0 +1,80 @@
+#include <stdio.h>
+
+int main() {
+    int N;
+    int i;
+    int j;
+    int aux;
+    int numeroBuscar;
+    int fib2;
+    int fib1;
+    int fib;
+    int offset = -1;
+    int posicion = -1;
+
+    printf("Ingrese el tamano del vector: ");
+    scanf("%d", &N);
+
+    int vector[N];
+
+    for(i = 0; i < N; i++) {
+        printf("Elemento %d: ", i);
+        scanf("%d", &vector[i]);
+    }
+
+    for(i = 0; i < N - 1; i++) {
+        for(j = 0; j < N - 1 - i; j++) {
+            if(vector[j] > vector[j + 1]) {
+                aux = vector[j];
+                vector[j] = vector[j + 1];
+                vector[j + 1] = aux;
+            }
+        }
+    }
+
+    printf("Numero a buscar: ");
+    scanf("%d", &numeroBuscar);
+
+    fib2 = 0;
+    fib1 = 1;
+    fib = fib2 + fib1;
+
+    while(fib < N) {
+        fib2 = fib1;
+        fib1 = fib;
+        fib = fib2 + fib1;
+    }
+
+    while(fib > 1) {
+        int index = offset + fib2;
+        if(index >= N) {
+            index = N - 1;
+        }
+
+        if(vector[index] < numeroBuscar) {
+            fib = fib1;
+            fib1 = fib2;
+            fib2 = fib - fib1;
+            offset = index;
+        } else if(vector[index] > numeroBuscar) {
+            fib = fib2;
+            fib1 = fib1 - fib2;
+            fib2 = fib - fib1;
+        } else {
+            posicion = index;
+            break;
+        }
+    }
+
+    if(posicion == -1 && fib1 == 1 && offset + 1 < N && vector[offset + 1] == numeroBuscar) {
+        posicion = offset + 1;
+    }
+
+    if(posicion == -1) {
+        printf("No encontrado\n");
+    } else {
+        printf("Encontrado en posicion %d\n", posicion);
+    }
+
+    return 0;
+}
