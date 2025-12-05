@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n, m, i, j, contador = 0;
+
+    printf("Ingrese el numero de filas: ");
+    scanf("%d", &n);
+
+    printf("Ingrese el numero de columnas: ");
+    scanf("%d", &m);
+
+    int matriz[n][m];
+
+    for(i = 0; i < n; i++) {
+        for(j = 0; j < m; j++) {
+            printf("Ingrese el valor en la posicion [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
+            if(matriz[i][j] % 2 == 0) {
+                contador++;
+            }
+        }
+    }
+
+    printf("\nLa matriz contiene %d valores pares.\n", contador);
+
+    return 0;
+}
