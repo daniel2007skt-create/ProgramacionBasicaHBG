@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main() {
+    int N;
+    int i;
+    int j;
+    int clave;
+
+    printf("Ingrese el tamano del vector: ");
+    scanf("%d", &N);
+
+    int vector[N];
+
+    for(i = 0; i < N; i++) {
+        printf("Elemento %d: ", i);
+        scanf("%d", &vector[i]);
+    }
+
+    for(i = 1; i < N; i++) {
+        clave = vector[i];
+        j = i - 1;
+
+        while(j >= 0 && vector[j] > clave) {
+            vector[j + 1] = vector[j];
+            j--;
+        }
+        vector[j + 1] = clave;
+    }
+
+    for(i = 0; i < N; i++) {
+        printf("%d\n", vector[i]);
+    }
+
+    return 0;
+}
