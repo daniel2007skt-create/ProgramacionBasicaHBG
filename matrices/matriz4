@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n, i, j;
+    int sumaMaximos = 0;
+    float mediaMaximos;
+
+    printf("Ingrese la dimension de la matriz: ");
+    scanf("%d", &n);
+
+    int matriz[n][n];
+    int maximos[n];
+
+    for(i = 0; i < n; i++) {
+        for(j = 0; j < n; j++) {
+            printf("Ingrese el valor en la posicion [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    for(i = 0; i < n; i++) {
+        maximos[i] = matriz[i][0];
+        for(j = 1; j < n; j++) {
+            if(matriz[i][j] > maximos[i]) {
+                maximos[i] = matriz[i][j];
+            }
+        }
+        sumaMaximos += maximos[i];
+    }
+
+    mediaMaximos = (float)sumaMaximos / n;
+
+    printf("\nMatriz y maximos por fila:\n");
+    for(i = 0; i < n; i++) {
+        for(j = 0; j < n; j++) {
+            printf("%d ", matriz[i][j]);
+        }
+        printf("\t%d\n", maximos[i]);
+    }
+
+    printf("Media de los maximos: %.2f\n", mediaMaximos);
+
+    return 0;
+}
