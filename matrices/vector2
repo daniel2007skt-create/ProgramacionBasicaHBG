@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    int N;
+    int i;
+    int numero;
+
+    printf("Ingrese el tamano del vector: ");
+    scanf("%d", &N);
+
+    int vector[N];
+
+    for(i = 0; i < N; i++) {
+        do {
+            printf("Ingrese un numero par para la posicion %d: ", i);
+            scanf("%d", &numero);
+        } while(numero % 2 != 0);
+
+        vector[i] = numero;
+    }
+
+    for(i = 0; i < N; i++) {
+        printf("Posicion %d -> %d\n", i, vector[i]);
+    }
+
+    return 0;
+}
