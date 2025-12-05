@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+int main() {
+    int N;
+    int i;
+    int j;
+    int aux;
+    int numeroBuscar;
+    int limite = 1;
+    int inicio;
+    int fin;
+    int medio;
+    int posicion = -1;
+
+    printf("Ingrese el tamano del vector: ");
+    scanf("%d", &N);
+
+    int vector[N];
+
+    for(i = 0; i < N; i++) {
+        printf("Elemento %d: ", i);
+        scanf("%d", &vector[i]);
+    }
+
+    for(i = 0; i < N - 1; i++) {
+        for(j = 0; j < N - 1 - i; j++) {
+            if(vector[j] > vector[j + 1]) {
+                aux = vector[j];
+                vector[j] = vector[j + 1];
+                vector[j + 1] = aux;
+            }
+        }
+    }
+
+    printf("Numero a buscar: ");
+    scanf("%d", &numeroBuscar);
+
+    if(vector[0] == numeroBuscar) {
+        printf("Encontrado en posicion 0\n");
+        return 0;
+    }
+
+    while(limite < N && vector[limite] <= numeroBuscar)
