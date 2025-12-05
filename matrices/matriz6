@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n, m, i, j;
+
+    printf("Ingrese el numero de filas: ");
+    scanf("%d", &n);
+
+    printf("Ingrese el numero de columnas: ");
+    scanf("%d", &m);
+
+    float matriz[n][m];
+    float sumaFilas[n];
+    float sumaColumnas[m];
+    float total = 0;
+
+    for(i = 0; i < n; i++) {
+        for(j = 0; j < m; j++) {
+            printf("Ingrese el valor en la posicion [%d][%d]: ", i, j);
+            scanf("%f", &matriz[i][j]);
+        }
+    }
+
+    for(i = 0; i < n; i++) {
+        sumaFilas[i] = 0;
+        for(j = 0; j < m; j++) {
+            sumaFilas[i] += matriz[i][j];
+        }
+    }
+
+    for(j = 0; j < m; j++) {
+        sumaColumnas[j] = 0;
+        for(i = 0; i < n; i++) {
+            sumaColumnas[j] += matriz[i][j];
+        }
+    }
+
+    for(i = 0; i < n; i++) {
+        for(j = 0; j < m; j++) {
+            printf("%.2f ", matriz[i][j]);
+        }
+        printf("%.2f\n", sumaFilas[i]);
+    }
+
+    for(j = 0; j < m; j++) {
+        printf("%.2f ", sumaColumnas[j]);
+        total += sumaColumnas[j];
+    }
+
+    printf("%.2f\n", total);
+
+    return 0;
+}
