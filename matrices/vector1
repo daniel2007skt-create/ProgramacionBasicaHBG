@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+    int N;
+    int i;
+    int sumaElementos = 0;
+    float promedio;
+
+    printf("Ingrese el tamano del vector: ");
+    scanf("%d", &N);
+
+    int vector[N];
+
+    for(i = 0; i < N; i++) {
+        printf("Elemento %d: ", i);
+        scanf("%d", &vector[i]);
+        sumaElementos += vector[i];
+    }
+
+    promedio = (float)sumaElementos / N;
+
+    printf("La suma es: %d\n", sumaElementos);
+    printf("El promedio es: %.2f\n", promedio);
+
+    return 0;
+}
