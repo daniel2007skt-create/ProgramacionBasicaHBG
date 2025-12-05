@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    int N;
+    int i;
+
+    printf("Ingrese el tamano de los vectores: ");
+    scanf("%d", &N);
+
+    int vectorA[N];
+    int vectorB[N];
+    int vectorC[N];
+
+    for(i = 0; i < N; i++) {
+        printf("Vector A posicion %d: ", i);
+        scanf("%d", &vectorA[i]);
+    }
+
+    for(i = 0; i < N; i++) {
+        printf("Vector B posicion %d: ", i);
+        scanf("%d", &vectorB[i]);
+    }
+
+    for(i = 0; i < N; i++) {
+        vectorC[i] = vectorA[i] + vectorB[i];
+    }
+
+    for(i = 0; i < N; i++) {
+        printf("Vector C posicion %d: %d\n", i, vectorC[i]);
+    }
+
+    return 0;
+}
