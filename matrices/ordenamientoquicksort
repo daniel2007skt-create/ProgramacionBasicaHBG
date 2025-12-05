@@ -1,0 +1,54 @@
+#include <stdio.h>
+
+void quickSort(int vector[], int inicio, int fin) {
+    int i = inicio;
+    int j = fin;
+    int pivote = vector[(inicio + fin) / 2];
+    int aux;
+
+    while(i <= j) {
+        while(vector[i] < pivote) {
+            i++;
+        }
+        while(vector[j] > pivote) {
+            j--;
+        }
+        if(i <= j) {
+            aux = vector[i];
+            vector[i] = vector[j];
+            vector[j] = aux;
+            i++;
+            j--;
+        }
+    }
+
+    if(inicio < j) {
+        quickSort(vector, inicio, j);
+    }
+    if(i < fin) {
+        quickSort(vector, i, fin);
+    }
+}
+
+int main() {
+    int N;
+    int i;
+
+    printf("Ingrese el tamano del vector: ");
+    scanf("%d", &N);
+
+    int vector[N];
+
+    for(i = 0; i < N; i++) {
+        printf("Elemento %d: ", i);
+        scanf("%d", &vector[i]);
+    }
+
+    quickSort(vector, 0, N - 1);
+
+    for(i = 0; i < N; i++) {
+        printf("%d\n", vector[i]);
+    }
+
+    return 0;
+}
