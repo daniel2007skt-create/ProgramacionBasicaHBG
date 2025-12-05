@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int main() {
+    int N;
+    int i;
+    int j;
+    int min;
+    int aux;
+
+    printf("Ingrese el tamano del vector: ");
+    scanf("%d", &N);
+
+    int vector[N];
+
+    for(i = 0; i < N; i++) {
+        printf("Elemento %d: ", i);
+        scanf("%d", &vector[i]);
+    }
+
+    for(i = 0; i < N - 1; i++) {
+        min = i;
+        for(j = i + 1; j < N; j++) {
+            if(vector[j] < vector[min]) {
+                min = j;
+            }
+        }
+        aux = vector[i];
+        vector[i] = vector[min];
+        vector[min] = aux;
+    }
+
+    for(i = 0; i < N; i++) {
+        printf("%d\n", vector[i]);
+    }
+
+    return 0;
+}
