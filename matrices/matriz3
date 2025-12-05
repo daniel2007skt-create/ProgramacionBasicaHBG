@@ -1,1 +1,49 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n, m, i, j;
+    int maximo, minimo, suma = 0;
+    int totalElementos;
+    float media;
+
+    printf("Ingrese el numero de filas: ");
+    scanf("%d", &n);
+
+    printf("Ingrese el numero de columnas: ");
+    scanf("%d", &m);
+
+    int matriz[n][m];
+
+    for(i = 0; i < n; i++) {
+        for(j = 0; j < m; j++) {
+            printf("Ingrese el valor en la posicion [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    maximo = matriz[0][0];
+    minimo = matriz[0][0];
+
+    for(i = 0; i < n; i++) {
+        for(j = 0; j < m; j++) {
+            if(matriz[i][j] > maximo) {
+                maximo = matriz[i][j];
+            }
+            if(matriz[i][j] < minimo) {
+                minimo = matriz[i][j];
+            }
+            suma += matriz[i][j];
+        }
+    }
+
+    totalElementos = n * m;
+    media = (float)suma / totalElementos;
+
+    printf("\nValor maximo: %d", maximo);
+    printf("\nValor minimo: %d", minimo);
+    printf("\nMedia de los elementos: %.2f\n", media);
+
+    return 0;
+}
 
