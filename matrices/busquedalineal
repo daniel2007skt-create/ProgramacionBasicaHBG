@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int main() {
+    int N;
+    int i;
+    int numeroBuscar;
+    int posicion = -1;
+
+    printf("Ingrese el tamano del vector: ");
+    scanf("%d", &N);
+
+    int vector[N];
+
+    for(i = 0; i < N; i++) {
+        printf("Elemento %d: ", i);
+        scanf("%d", &vector[i]);
+    }
+
+    printf("Numero a buscar: ");
+    scanf("%d", &numeroBuscar);
+
+    for(i = 0; i < N; i++) {
+        if(vector[i] == numeroBuscar) {
+            posicion = i;
+            break;
+        }
+    }
+
+    if(posicion == -1) {
+        printf("No encontrado\n");
+    } else {
+        printf("Encontrado en posicion %d\n", posicion);
+    }
+
+    return 0;
+}
